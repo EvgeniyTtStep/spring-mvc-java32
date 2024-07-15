@@ -1,0 +1,24 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="org.itstep.model.Group" table="team">
+
+
+        <id name="id" type="int" column="id_group">
+            <generator class="identity"/>
+        </id>
+
+        <property name="name" column="name" type="string"/>
+        <property name="date" column="date" type="string"/>
+
+        <set name="students" table="students" lazy="false">
+            <key column="team_id"/>
+            <one-to-many class="org.itstep.model.Student"/>
+        </set>
+
+
+    </class>
+</hibernate-mapping>
