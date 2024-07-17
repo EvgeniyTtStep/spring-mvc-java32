@@ -48,7 +48,8 @@ public class StudentDAO implements BaseEntity<Student, Integer> {
     @Override
     public List<Student> findAll() {
         Session session = openSession();
-        return session.createQuery("from Student").list();
-
+        List fromStudent = session.createQuery("from Student").list();
+        session.close();
+        return fromStudent;
     }
 }

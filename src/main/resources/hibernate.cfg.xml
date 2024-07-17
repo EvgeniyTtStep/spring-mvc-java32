@@ -25,12 +25,14 @@
 
         <property name="hbm2ddl.auto">update</property>
 
-        <mapping resource="student.hbm.xml" />
-        <mapping resource="group.hbm.xml"/>
+<!--        <mapping resource="student.hbm.xml" />-->
+<!--        <mapping resource="group.hbm.xml"/>-->
+<!--        <mapping resource="teacher.hbm.xml"/>-->
 
 
         <mapping class="org.itstep.model.Student"/>
         <mapping class="org.itstep.model.Group"/>
+        <mapping class="org.itstep.model.Teacher"/>
 
     </session-factory>
 </hibernate-configuration>

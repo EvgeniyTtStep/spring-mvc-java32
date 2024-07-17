@@ -3,6 +3,7 @@ package org.itstep.controller;
 import org.itstep.dao.hibernate.StudentDAO;
 import org.itstep.dao.hibernate.StudentDAOHibernate;
 import org.itstep.model.Student;
+import org.itstep.model.Teacher;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -55,7 +56,9 @@ public class StudentController {
 
         for (Student student : studentDAO.findAll()) {
             System.out.println("Name:" + student.getName());
-            System.out.println("Group: " + student.getGroup().getName());
+            if (student.getGroup() != null) {
+                System.out.println("Group: " + student.getGroup().getName());
+            }
         }
         return "all-students";
     }
@@ -71,9 +74,17 @@ public class StudentController {
                 break;
             }
         }
-        model.addAttribute("myName", student.getName());
-        model.addAttribute("myEmail", student.getEmail());
-        model.addAttribute("myPhone", student.getPhone());
+        //Student student = studentDAO.findById(Integer.parseInt(id));
+
+
+
+        System.out.println("========== Student: " + student.getName() + " =================");
+        for (Teacher teacher : student.getTeachers()) {
+            System.out.println("+++++++++++++++ Teacher: " + teacher.getName()+" ++++++++++++++++");
+        }
+
+        model.addAttribute("student", student);
+
         return "show-student";
     }
 

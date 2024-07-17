@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Home
@@ -16,5 +17,13 @@
 <h2>Student name: ${student.name}</h2>
 <h2>Student email: ${student.email}</h2>
 <h2>Student phone: ${student.phone}</h2>
+
+<h2>Student teacher: </h2>
+    <c:forEach var="teacher" items="${student.teachers}">
+        <span>
+                ${teacher.name}
+        </span>
+        <br>
+    </c:forEach>
 </body>
 </html>

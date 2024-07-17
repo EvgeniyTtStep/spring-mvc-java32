@@ -18,8 +18,8 @@
             <td>${student.name}</td>
             <td>${student.email}</td>
             <td>${student.phone}</td>
-            <td>${student.group.name}</td>
-            <td><a href="/student/info${student.id}">Info</a></td>
+            <td><c:if test="${student.group != null}">${student.group.name}</c:if> </td>
+            <td><a href="/show-student/${student.id}">Info</a></td>
             <td><a href="/student/update${student.id}"> Update</a></td>
             <td><a href="/student/delete${student.id}"> Delete</a></td>
         </tr>

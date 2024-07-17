@@ -22,5 +22,10 @@
             <column name="team_id"/>
         </many-to-one>
 
+        <set name="teachers" table="StudentTeacher">
+            <key column="student_id"/>
+            <many-to-many column="teacher_id" class="org.itstep.model.Teacher"/>
+        </set>
+
     </class>
 </hibernate-mapping>
